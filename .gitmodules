@@ -1,0 +1,3 @@
+[submodule "grading-data"]
+	path = grading-data
+	url = git@github.com:emanueleusai/grading-data.git
