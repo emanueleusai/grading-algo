@@ -54,6 +54,9 @@ letters_thresholds={
 	'F': [0.     , 59.],
 }
 
+letters_intervals=[0.,59.,63-0.005,67-0.005,70-0.005,73-0.005,77-0.005,80-0.005,83-0.005,87-0.005,90-0.005,93-0.005,97-0.005,1000]
+letters=['F','D-','D','D+','C-','C','C+','B-','B','B+','A-','A','A+']
+
 
 df=df.rename(columns=columns_to_rename)
 df_honors=df_honors.rename(columns=columns_to_rename_honors)
@@ -149,16 +152,15 @@ df_honors['total']=sum([
         for i in assessment_weights.keys()
         ]+[df_honors["FCI"]*ec_weights['FCI'],df_honors["HONORS"]*ec_weights['HONORS']])/total_norm*100
 
-df2=df.loc[df['Last Name'] == "Usai"]
+df2=df.loc[df['First Name'] == "Alex"]
 print(df2[['Last Name', 'First Name',"LAB_AVG","QUIZ_AVG","HW_AVG","EXAM_AVG",'FCI','total']])
 
 # f_waivers = open('grading-data/waivers.json')
 # waivers = json.load(f_waivers)
-# f_waivers.close()
-  
-# Iterating through the json
-# list
+
 # for i in waivers['student']:
 #     print(i)
+
+# f_waivers.close()
   
 
