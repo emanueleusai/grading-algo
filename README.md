@@ -16,3 +16,5 @@ git config --global submodule.recurse true
 git submodule add git@github.com:emanueleusai/grading-data.git
 
 pip install -r requirements.txt
+
+python3 grade.py
