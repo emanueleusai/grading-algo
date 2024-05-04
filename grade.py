@@ -163,7 +163,7 @@ print(total_norm)
 # "FINAL":0.7}
 
 ec_weights={
-    "FCI":0.1,
+    "FCI":0.05,
     # "HONORS": 0.07
 }
 
@@ -172,7 +172,7 @@ for i in assessments.keys():
         tmp=np.sort(df[assessments[i]], axis=1)[:, 1:]
         tmp_low=np.sort(df[assessments[i]], axis=1)[:, 0:1]
         # print('tmp',tmp,'tmp_low',tmp_low)
-        tmp=np.append(tmp,tmp_low/3,axis=1)
+        tmp=np.append(tmp,tmp_low/4.5,axis=1)
         # print("tmp2",tmp)
         df[i] = tmp.sum(1)/2
 
