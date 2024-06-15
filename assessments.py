@@ -28,7 +28,7 @@ columns_info={
 "Quiz 1 -- take home [Total Pts: 5 Score] |3585882":['QUIZ1TH',1],
 
 "Quiz 2 - answer sheet [Total Pts: 5 Score] |3591081":['QUIZ2AS',1],
-"Quiz 2 - take home [Total Pts: 5 Score] |3591084":['QUIZ2TH',1]
+"Quiz 2 - take home [Total Pts: 5 Score] |3591084":['QUIZ2TH',1],
 
 "Quiz 3 -- answer sheet [Total Pts: 5 Score] |3596684":['QUIZ3AS',1],
 "Quiz 3 -- take home [Total Pts: 5 Score] |3596689":['QUIZ3TH',1],
@@ -84,9 +84,11 @@ columns_info={
 "Homework set #10 [Total Pts: 120 Score] |3660604":['HW10B',120],
 "Homework set #10 [EXTRA CREDIT] [Total Pts: 6 Score] |3660605":['HW10E',6],
 
-"Homework set #11 [EXTRA CREDIT] [Total Pts: 81 Score] |3660606":['HW11',81]
+"Homework set #11 [EXTRA CREDIT] [Total Pts: 81 Score] |3660606":['HW11',81],
 
 
+"PointSolutions Total Participation [Total Pts: 22 Score] |3662137":['CLICKER_PART',22],
+"PointSolutions Total Performance [Total Pts: 56 Score] |3662138":['CLICKER_PERF',56],
 
 ################################################################################################
 

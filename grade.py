@@ -1,7 +1,8 @@
 import pandas as pd,numpy as np,importlib
 
-
-df = pd.read_csv('grading-data/gc_43634.202340_fullgc_2023-12-18-03-11-40.csv')
+df = pd.read_csv('grading-data/gc_10594.202410_fullgc_2024-05-05-01-42-11.csv')
+# df = pd.read_csv('grading-data/gc_10594.202410_fullgc_2024-05-03-22-25-48.csv')
+# df = pd.read_csv('grading-data/gc_43634.202340_fullgc_2023-12-18-03-11-40.csv') # F23
 # df_honors = pd.read_csv('grading-data/gc_11035.202310_fullgc_2023-05-06-12-32-50.csv')
 
 
@@ -110,7 +111,8 @@ for i in range(1,len(hw_extra_credit_weights)+1):
     # df_honors["HW"+n]=df_honors["HW"+n+"B"]+df_honors["HW"+n+"E"]*hw_extra_credit_weights["HW"+n+"E"]
 
 # take_home_only=['QUIZ4','QUIZ8','QUIZ10','QUIZ11']
-take_home_only=[4,8,10,11]
+take_home_only=[5,8,10,11]
+# take_home_only=[4,8,10,11] #F23
 
 for i in range(1,len(assessments["QUIZ_AVG"])+1):
     n=str(i)
@@ -119,14 +121,15 @@ for i in range(1,len(assessments["QUIZ_AVG"])+1):
 
 quiz_intervals=np.array([-0.1,0.9,1.9,2.9,3.9,1000])
 quiz_percent=np.array([0,0.5,0.75,1,1.10])
-quiz_percent6=np.array([0.5,1,1.25,1.5,1.60])
+# quiz_percent6=np.array([0.5,1,1.25,1.5,1.60])
 
 for i in range(1,len(assessments["QUIZ_AVG"])+2):
     n=str(i)
-    if i!=6:
-        df["QUIZ"+n]=quiz_percent[np.searchsorted(quiz_intervals, df["QUIZ"+n+"RAW"])-1]
-    else:
-        df["QUIZ"+n]=quiz_percent6[np.searchsorted(quiz_intervals, df["QUIZ"+n+"RAW"])-1]
+    df["QUIZ"+n]=quiz_percent[np.searchsorted(quiz_intervals, df["QUIZ"+n+"RAW"])-1]
+    # if i!=6: #F23
+    #     df["QUIZ"+n]=quiz_percent[np.searchsorted(quiz_intervals, df["QUIZ"+n+"RAW"])-1]
+    # else:
+    #     df["QUIZ"+n]=quiz_percent6[np.searchsorted(quiz_intervals, df["QUIZ"+n+"RAW"])-1]
 
 
 
@@ -164,6 +167,8 @@ print(total_norm)
 
 ec_weights={
     "FCI":0.05,
+    'CLICKER_PART':0.025,
+    'CLICKER_PERF':0.025,
     # "HONORS": 0.07
 }
 
@@ -205,7 +210,10 @@ for i in assessments.keys():
 df['total']=sum([
         df[i]*assessment_weights[i]
         for i in assessment_weights.keys()
-        ]+[df["FCI"]*ec_weights['FCI']])*100#/total_norm*100
+        ]+[df["FCI"]*ec_weights['FCI']]
+        +[df['CLICKER_PART']*ec_weights['CLICKER_PART']]
+        +[df['CLICKER_PERF']*ec_weights['CLICKER_PERF']]
+        )*100#/total_norm*100
 
 # df_honors['total']=sum([
 #         df_honors[i]*assessment_weights[i]
